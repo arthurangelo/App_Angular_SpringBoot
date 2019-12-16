@@ -1,4 +1,4 @@
-# App_Angular_SpringBoot
+Executar o projeto back-end construido em java
+Executar o projeto front-end em angular
 
-Executar o projeto simple_crud
-Executar o projeto novo_app_angular
+usuario padrão alex@gmail.com -> senha: 123456

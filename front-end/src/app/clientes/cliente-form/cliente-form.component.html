@@ -1,0 +1,55 @@
+<form class="was-validated form-group" #cadastro="ngForm" (ngSubmit)="salvar()">
+
+  <div class="col-md-2 mb-3">
+    <label for="id">Id</label>
+    <input type="text" ng-model="cliente.id" class="form-control"
+    disabled name="id">
+  </div>
+
+  <div class="col-md-4 mb-3">
+      <label for="name">NOME</label>
+    <input type="text" [(ngModel)]="cliente.name"
+    class="form-control is-valid" #name="ngModel" name="name" minlength="5" required>
+    <div [hidden]="name.valid" class="invalid-feedback">
+        <p>Nome incompleto</p>
+    </div>
+  </div>
+
+  <div class="col-md-2 mb-2">
+    <label for="email">Email</label>
+    <input type="text" [(ngModel)]="cliente.email"
+    class="form-control is-valid" #email="ngModel" name="email" required>
+    <div class="invalid-feedback">
+        <p>Email é obrigatório</p>
+    </div>
+  </div>
+
+  <div class="col-md-2 mb-2">
+    <label for="telefone">Telefone</label>
+    <input type="text" [(ngModel)]="cliente.phone"
+    class="form-control is-valid" #phone="ngModel" name="telefone" required>
+    <div class="invalid-feedback">
+        <p>Telefone é obrigatório</p>
+    </div>
+  </div>
+
+  <div class="col-md-2 mb-2">
+    <label for="password">Senha</label>
+    <input type="text" [(ngModel)]="cliente.password"
+    class="form-control is-valid" #password="ngModel" name="password" required>
+    <div class="invalid-feedback">
+        <p>Senha é obrigatório</p>
+    </div>
+  </div>
+
+
+  <div class="container">
+      <button class="btn btn-success" type="submit"
+      [disabled]="cadastro.form.invalid">Enviar</button>
+      <button class="btn btn-danger" type="button"
+      [hidden]="isNew" (click)="excluir()">Excluir</button>
+      <button class="btn btn-warning" type="button"
+      (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
+

@@ -1,0 +1,24 @@
+<table class="table table-dark">
+  <thead>
+      <tr>
+
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let clienteTabela of clientes | filter:searchText">
+        <a [routerLink]="[clienteTabela.id]">
+        <td>{{clienteTabela.id}}</td></a>
+        <td>{{clienteTabela.name}}</td>
+        <td>{{clienteTabela.email}}</td>
+        <td>{{clienteTabela.phone}}</td>
+
+      </tr>
+    </tbody>
+</table>
+<span [hidden]="(clientes | filter: searchText).length != 0">Infelizmente
+  n&atilde;o temos o que voc&ecirc; est&aacute; procurando</span>

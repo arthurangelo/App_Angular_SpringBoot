@@ -1,0 +1,48 @@
+<form class="was-validated form-group" #cadastro="ngForm" (ngSubmit)="salvar()">
+
+  <div class="col-md-2 mb-3">
+    <label for="id">Id</label>
+    <input type="text" ng-model="produto.id" class="form-control"
+    disabled name="id">
+  </div>
+
+  <div class="col-md-4 mb-3">
+      <label for="name">Nome</label>
+    <input type="text" [(ngModel)]="produto.name"
+    class="form-control is-valid" #name="ngModel" name="name" minlength="5" required>
+    <div [hidden]="name.valid" class="invalid-feedback">
+        <p>Nome incompleto</p>
+    </div>
+  </div>
+
+  <div class="col-md-2 mb-2">
+    <label for="descricao">Descrição</label>
+    <input type="text" [(ngModel)]="produto.description"
+    class="form-control is-valid" #description="ngModel" name="descricao" required>
+    <div class="invalid-feedback">
+        <p>campo é obrigatório</p>
+    </div>
+  </div>
+
+  <div class="col-md-2 mb-2">
+    <label for="preco">Preço</label>
+    <input type="text" [(ngModel)]="produto.price"
+    class="form-control is-valid" #preco="ngModel" name="preco" required>
+    <div class="invalid-feedback">
+        <p>campo é obrigatório</p>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+      <button class="btn btn-success" type="submit"
+      [disabled]="cadastro.form.invalid">Enviar</button>
+      <button class="btn btn-danger" type="button"
+      [hidden]="isNew" (click)="excluir()">Excluir</button>
+      <button class="btn btn-warning" type="button"
+      (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
+
+
